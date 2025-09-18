@@ -38,26 +38,34 @@ app.use(express.json());
 //   res.send("A new user has been added.");
 // });
 
-app.get("/products", (req, res) => {
-  res.send("Here is the list of all products.");
-});
+// app.get("/products", (req, res) => {
+//   res.send("Here is the list of all products.");
+// });
 
-app.post("/products", (req, res) => {
-  res.send("A new product has been added.");
-});
+// app.post("/products", (req, res) => {
+//   res.send("A new product has been added.");
+// });
 
-// Routes for categories
-app.get("/categories", (req, res) => {
-  res.send("Here is the list of all categories.");
-});
+// // Routes for categories
+// app.get("/categories", (req, res) => {
+//   res.send("Here is the list of all categories.");
+// });
 
-app.post("/categories", (req, res) => {
-  res.send("A new category has been created.");
-});
+// app.post("/categories", (req, res) => {
+//   res.send("A new category has been created.");
+// });
 
-// Wildcard route for undefined paths
-app.use("*", (req, res) => {
-  res.status(404).send("<h1>404 - Page Not Found</h1>");
+// // Wildcard route for undefined paths
+// app.use("*", (req, res) => {
+//   res.status(404).send("<h1>404 - Page Not Found</h1>");
+// });
+
+app.get("/welcome/:userid", (req, res) => {
+  const id = req.params.userid;
+  const name = req.query.name;
+  const role = req.query.role;
+
+  res.send(`Welcome ${id}-${name}-${role}`);
 });
 
 // Start server
